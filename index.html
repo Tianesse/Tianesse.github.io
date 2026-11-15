@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>测一测，TA是不是也在偷偷喜欢你</title>
+<meta name="description" content="32 道心动小细节选择题，测一测TA心里到底怎么看你。趣味测试，仅供娱乐。">
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23FFE1E7'/%3E%3Cpath d='M16 26l-1.9-1.8C7.6 18 4 14.7 4 11.4 4 8.4 6.4 6 9.4 6c1.7 0 3.3.8 4.4 2.1L16 10.4l2.2-2.3c1.1-1.3 2.7-2.1 4.4-2.1 3 0 5.4 2.4 5.4 5.4 0 3.3-3.6 6.6-10.1 12.8z' fill='%23F1466F'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#33202A;
+  --ink-soft:#7A6069;
+  --paper:#FFF7F1;
+  --white:#FFFFFF;
+  --rose:#F1466F;
+  --rose-deep:#C42750;
+  --blush:#FFE1E7;
+  --blush-deep:#FFCBD4;
+  --mint:#79CFAE;
+  --sun:#FFC24B;
+  --line:rgba(51,32,42,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.bg{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bg::before,.bg::after{content:"";position:absolute;border-radius:50%;filter:blur(2px)}
+.bg::before{width:340px;height:340px;left:-140px;top:-120px;background:radial-gradient(circle at 50% 50%,rgba(255,203,212,.85),rgba(255,203,212,0) 70%)}
+.bg::after{width:420px;height:420px;right:-170px;bottom:-190px;background:radial-gradient(circle at 50% 50%,rgba(121,207,174,.35),rgba(121,207,174,0) 70%)}
+.app{max-width:560px;margin:0 auto;padding:26px 20px 34px}
+.view[hidden]{display:none}
+.foot{font-size:12px;color:var(--ink-soft);text-align:center;line-height:1.6}
+
+/* ===== 首页 ===== */
+.hero{position:relative;border:2px solid var(--ink);border-radius:20px;overflow:hidden;box-shadow:6px 7px 0 rgba(51,32,42,.13);transform:rotate(-1.4deg);background:var(--white)}
+.hero img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.stamp{
+  position:absolute;right:-6px;top:14px;transform:rotate(7deg);
+  background:var(--sun);border:1.5px solid var(--ink);border-radius:6px;
+  padding:5px 9px;font-size:12px;font-weight:700;line-height:1.4;
+  box-shadow:2px 2px 0 rgba(51,32,42,.2);
+}
+h1{
+  font-family:"ZCOOL KuaiLe","Noto Sans SC",system-ui,sans-serif;
+  font-size:clamp(28px,8.6vw,40px);
+  line-height:1.3;letter-spacing:.6px;
+  margin:26px 0 0;text-align:center;
+  transform:rotate(.6deg);
+}
+.sub{text-align:center;font-size:14.5px;color:var(--ink-soft);margin-top:12px}
+.tags{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:26px}
+.tag{
+  display:flex;gap:9px;align-items:flex-start;
+  background:var(--white);border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;
+}
+.tag svg{flex:none;width:18px;height:18px;margin-top:3px;color:var(--rose)}
+.tag b{display:block;font-size:13.5px;line-height:1.4}
+.tag span{display:block;font-size:12px;color:var(--ink-soft);line-height:1.5;margin-top:2px}
+.cta{
+  display:block;width:100%;margin-top:28px;
+  padding:16px 0;border:2px solid var(--ink);border-radius:999px;
+  background:var(--rose);color:#fff;
+  font-family:"ZCOOL KuaiLe","Noto Sans SC",sans-serif;
+  font-size:19px;letter-spacing:2px;cursor:pointer;
+  box-shadow:4px 5px 0 rgba(51,32,42,.85);
+  transition:transform .14s ease,box-shadow .14s ease;
+}
+.cta:hover{transform:translate(-1px,-1px);box-shadow:6px 7px 0 rgba(51,32,42,.85)}
+.cta:active{transform:translate(3px,4px);box-shadow:1px 1px 0 rgba(51,32,42,.85)}
+.cta:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+.home-foot{margin-top:18px}
+.meta{display:flex;justify-content:center;gap:8px;margin-top:16px;flex-wrap:wrap}
+.meta span{font-size:11.5px;color:var(--ink-soft);border:1px dashed var(--line);border-radius:999px;padding:3px 10px}
+
+/* ===== 答题 ===== */
+.qhead{display:flex;align-items:center;gap:12px}
+.back{
+  flex:none;width:40px;height:40px;border-radius:50%;
+  border:1.5px solid var(--ink);background:var(--white);
+  color:var(--ink);font-size:16px;line-height:1;cursor:pointer;
+  transition:background .15s ease,transform .15s ease;
+}
+.back:hover{background:var(--blush)}
+.back:focus-visible{outline:3px solid var(--mint);outline-offset:2px}
+.back[disabled]{opacity:.32;cursor:default}
+.back[disabled]:hover{background:var(--white)}
+.count{margin-left:auto;font-size:13px;color:var(--ink-soft);letter-spacing:1px}
+.count b{color:var(--ink);font-size:16px}
+.rail{height:6px;border-radius:999px;background:var(--blush-deep);margin-top:14px;overflow:hidden}
+.rail i{display:block;height:100%;width:0;border-radius:999px;background:var(--rose);transition:width .3s ease}
+.qbody{animation:qIn .26s ease-out both}
+@keyframes qIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.qbody{animation:none}.rail i{transition:none}}
+.sec{font-size:12px;color:var(--rose-deep);letter-spacing:.14em;margin-top:22px}
+.qtext{
+  font-family:"ZCOOL KuaiLe","Noto Sans SC",sans-serif;
+  font-size:23px;line-height:1.5;margin-top:6px;
+}
+.opts{display:grid;gap:10px;margin-top:20px}
+.opt{
+  display:flex;gap:11px;align-items:flex-start;width:100%;text-align:left;
+  padding:13px 15px;border:1.5px solid var(--line);border-radius:14px;
+  background:var(--white);color:var(--ink);font-size:14.5px;line-height:1.6;
+  cursor:pointer;font-family:inherit;
+  transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease,background .15s ease;
+}
+.opt:hover{border-color:var(--ink);transform:translateY(-2px);box-shadow:3px 4px 0 rgba(51,32,42,.14)}
+.opt:focus-visible{outline:3px solid var(--mint);outline-offset:2px}
+.opt .k{
+  flex:none;width:24px;height:24px;border-radius:50%;
+  background:var(--blush);color:var(--rose-deep);
+  font-size:12.5px;font-weight:700;line-height:24px;text-align:center;margin-top:1px;
+}
+.opt.on{background:var(--blush);border-color:var(--rose)}
+.opt.on .k{background:var(--rose);color:#fff}
+
+/* ===== 结果 ===== */
+.rbox{animation:qIn .32s ease-out both}
+.rindex{font-size:12px;color:var(--ink-soft);letter-spacing:.1em}
+.rname{
+  font-family:"ZCOOL KuaiLe","Noto Sans SC",sans-serif;
+  font-size:clamp(27px,8vw,34px);line-height:1.4;margin-top:4px;
+}
+.rname em{font-style:normal;background:linear-gradient(transparent 62%,var(--blush) 62%)}
+.rtag{font-size:16.5px;font-weight:700;color:var(--rose-deep);margin-top:10px;line-height:1.6}
+.block{margin-top:22px}
+.block .label{font-size:11.5px;letter-spacing:.16em;color:var(--ink-soft)}
+.block p{margin-top:6px;font-size:14.5px;line-height:1.85}
+.dist{margin-top:26px;padding:16px 16px 8px;border:1.5px dashed var(--line);border-radius:14px;background:rgba(255,255,255,.7)}
+.dist h3{font-size:12px;letter-spacing:.14em;color:var(--ink-soft);margin-bottom:10px;font-weight:400}
+.row{display:grid;grid-template-columns:78px minmax(0,1fr) 26px;align-items:center;gap:9px;margin-bottom:11px;font-size:12.5px}
+.row .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink-soft)}
+.row .tr{height:8px;border-radius:999px;background:var(--blush);overflow:hidden}
+.row .tr i{display:block;height:100%;border-radius:999px;background:var(--rose);width:0;transition:width .5s ease}
+.row .sc{text-align:right;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.row.top .nm{color:var(--ink);font-weight:700}
+.row.top .sc{color:var(--rose-deep);font-weight:700}
+.next{margin-top:20px;padding:16px;border-radius:14px;background:var(--blush);border:1.5px solid var(--blush-deep)}
+.next .label{font-size:11.5px;letter-spacing:.16em;color:var(--rose-deep)}
+.next p{margin-top:5px;font-size:14.5px;line-height:1.75}
+.acts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:22px}
+.btn{
+  padding:14px 0;border-radius:999px;font-size:15px;cursor:pointer;font-family:inherit;
+  transition:transform .14s ease,box-shadow .14s ease,background .15s ease;
+}
+.btn.main{background:var(--ink);color:#fff;border:2px solid var(--ink);box-shadow:3px 4px 0 rgba(51,32,42,.22)}
+.btn.ghost{background:var(--white);color:var(--ink);border:2px solid var(--ink)}
+.btn:hover{transform:translate(-1px,-1px)}
+.btn:active{transform:translate(2px,3px);box-shadow:none}
+.btn:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+.res-foot{margin-top:20px}
+/* ===== 口令门 ===== */
+.gate{padding-top:6px}
+.gate-badge{display:inline-block;background:var(--sun);border:1.5px solid var(--ink);border-radius:6px;padding:3px 10px;font-size:12px;font-weight:700;transform:rotate(-2deg)}
+.gate-title{font-family:"ZCOOL KuaiLe","Noto Sans SC",sans-serif;font-size:clamp(26px,7.8vw,34px);line-height:1.42;margin-top:16px}
+.gate-sub{font-size:13.5px;color:var(--ink-soft);line-height:1.75;margin-top:10px}
+.ticket{margin-top:22px;background:var(--white);border:2px dashed var(--line);border-radius:16px;padding:18px 16px 20px}
+.field-label{font-size:11.5px;letter-spacing:.16em;color:var(--ink-soft)}
+#codeInput{display:block;width:100%;margin-top:8px;padding:13px 10px;border:1.5px solid var(--ink);border-radius:10px;background:var(--paper);color:var(--ink);font-family:"Noto Sans SC","PingFang SC",sans-serif;font-size:19px;letter-spacing:2px;text-align:center;text-transform:uppercase}
+#codeInput::placeholder{color:#C7B3BA;font-size:16px}
+#codeInput:focus{outline:none;box-shadow:0 0 0 3px var(--blush)}
+.gate-msg{min-height:20px;font-size:12.5px;line-height:1.5;margin-top:9px;color:var(--rose-deep)}
+.gate .cta{margin-top:12px}
+.gate-note{font-size:12px;color:var(--ink-soft);line-height:1.8;margin-top:14px}
+@media (min-width:768px){
+  .app{padding-top:38px}
+  .qtext{font-size:25px}
+  .opt{font-size:15px}
+}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+<main class="app">
+
+  <!-- ===== 视图：口令门 ===== -->
+  <section class="view" id="view-gate">
+    <div class="gate">
+      <span class="gate-badge">专属口令</span>
+      <h2 class="gate-title">先输你的口令<br>再测TA的心意</h2>
+      <p class="gate-sub">下单后你会收到一组 10 位口令，<br>一单一码，首次使用后即失效。</p>
+      <div class="ticket">
+        <label class="field-label" for="codeInput">口令</label>
+        <input id="codeInput" type="text" inputmode="text" autocomplete="off" spellcheck="false" maxlength="14" placeholder="HB-XXXX-XXXX" aria-describedby="gateMsg">
+        <p class="gate-msg" id="gateMsg" role="status" aria-live="polite"></p>
+        <button class="cta" id="unlockBtn" type="button">解锁测试</button>
+      </div>
+      <p class="gate-note">口令输对后，本机可以直接再进来，不用重复输入。<br>提示无效或已被使用？回到订单消息里核对，或者直接来找我。</p>
+    </div>
+  </section>
+
+  <!-- ===== 视图：测试首页 ===== -->
+  <section class="view" id="view-home" hidden>
+    <div class="hero">
+      <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/BMWOb3AeJoMaK3x53NMcX10fnfc" alt="两支手机互相发消息的插画" width="1200" height="800">
+      <div class="stamp">32 道<br>心动题</div>
+    </div>
+    <h1>测一测，<br>TA是不是也在<br>偷偷喜欢你</h1>
+    <p class="sub">凭你的心动细节，匹配TA的真实心意</p>
+
+    <div class="tags">
+      <div class="tag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.6-7 9-7 9z"/></svg>
+        <div><b>心动细节</b><span>每个举动都有答案</span></div>
+      </div>
+      <div class="tag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4v9a5 5 0 0 0 10 0V4"/><circle cx="12" cy="18" r="3"/><path d="M4 4h6M14 4h6"/></svg>
+        <div><b>聊天温度</b><span>回复速度藏着态度</span></div>
+      </div>
+      <div class="tag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h9a3 3 0 0 1 0 6H9l-3 3v-3H4z"/><path d="M14 13h5a2 2 0 0 1 0 5h-1l-2 2v-2h-2z"/></svg>
+        <div><b>暧昧浓度</b><span>你们现在到哪一步</span></div>
+      </div>
+      <div class="tag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></svg>
+        <div><b>心意解读</b><span>TA心里到底怎么看你</span></div>
+      </div>
+    </div>
+
+    <button class="cta" id="startBtn" type="button">点击测试</button>
+    <p class="foot home-foot">趣味测试仅供娱乐，别拿结果去质问他</p>
+    <div class="meta">
+      <span>32 题单选</span><span>约 3 分钟</span><span>不收集任何信息</span>
+    </div>
+  </section>
+
+  <!-- ===== 视图：答题 ===== -->
+  <section class="view" id="view-quiz" hidden>
+    <div class="qhead">
+      <button class="back" id="backBtn" type="button" aria-label="上一题">&#8592;</button>
+      <span class="count"><b id="qnum">1</b> / 32</span>
+    </div>
+    <div class="rail"><i id="railFill"></i></div>
+    <div class="qbody" id="qbody">
+      <p class="sec" id="qsec">一 · 聊天温度</p>
+      <h2 class="qtext" id="qtext"></h2>
+      <div class="opts" id="opts"></div>
+    </div>
+  </section>
+
+  <!-- ===== 视图：结果 ===== -->
+  <section class="view" id="view-result" hidden>
+    <div class="rbox">
+      <p class="rindex" id="rindex"></p>
+      <h2 class="rname" id="rname"></h2>
+      <p class="rtag" id="rtag"></p>
+      <div class="block"><p class="label">人设</p><p id="rpersona"></p></div>
+      <div class="block"><p class="label">心意解读</p><p id="reading"></p></div>
+      <div class="dist">
+        <h3>你的心动分布</h3>
+        <div id="distRows"></div>
+      </div>
+      <div class="next"><p class="label">下一步</p><p id="nextTip"></p></div>
+      <div class="acts">
+        <button class="btn main" id="againBtn" type="button">再测一次</button>
+        <button class="btn ghost" id="copyBtn" type="button">复制结果</button>
+      </div>
+      <p class="foot res-foot">趣味测试仅供娱乐，别拿结果去质问他</p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+/* ===== 结果池：10 种心动结果 ===== */
+var TYPES = [
+  {name:"双向奔赴型", tag:"你俩就差一个人先开口", persona:"只差一句「我喜欢你」的准情侣。",
+   reading:"你们的默契已经满出屏幕了。TA会在你消息发出去之前就想好怎么回，你们抢着说晚安又谁都舍不得退出。唯一的变量是：谁先开口。现在的问题不是有没有感觉，是两个人都太懂礼貌，谁都不想当那个先破功的人。",
+   next:"别憋着了，随便问一句「你是不是有事想跟我说」，剩下的交给TA。"},
+  {name:"偷偷暗恋型", tag:"TA也喜欢你，只是不敢说", persona:"把心动藏成日常的沉默型选手。",
+   reading:"TA的喜欢不是没有，是太多了——多到不敢用一句话概括。TA会记住你随口说的每句话，会在你没注意的时候看你两眼，会在聊天框里打了又删。TA最大的障碍不是不喜欢你，是怕说出口以后，连现在这种关系都没有了。",
+   next:"TA现在不缺暗示，缺的是一个不会尴尬的入口。"},
+  {name:"友达以上型", tag:"再靠近一点就变味了", persona:"卡在友情和爱情中间的那个人。",
+   reading:"你们的相处早就越过普通朋友那条线了：抢话、拆台、在别人面前互相提对方。但谁都没把这件事说破，因为说破之后，现在这份舒服可能就没了。你俩现在正站在临界点上，往前一步是别的东西，往后一步是原来那样。",
+   next:"友情不会变味，暧昧才会。你们刚好在临界点上。"},
+  {name:"慢热观望型", tag:"有感觉，但还在观察你", persona:"把心动当成一个项目在评估的人。",
+   reading:"TA不是对你没感觉，是连「喜欢」都要先做个尽调。TA在观察你对别人的态度、你的脾气、你说过的话算不算数、你会不会突然消失。这种人一旦确定，会认真得吓人——但TA需要时间，而且不会告诉你TA在评估。",
+   next:"别急着证明自己，稳定本身就是你的答案。"},
+  {name:"故作镇定型", tag:"嘴上说没有，身体很诚实", persona:"演技最差的心动选手。",
+   reading:"你说什么TA都「还好吧」「没有啊」，但TA的点赞、秒回、记得你忌口、把空调调高，全都在替TA说话。TA不是不想承认，是TA真以为自己藏得很好。",
+   next:"你只要随口点一句，TA能当场僵三秒。"},
+  {name:"纯友谊型", tag:"TA真的只把你当朋友", persona:"把你放进「兄弟／姐妹」栏的那个人。",
+   reading:"TA对你是真好，但这种好是「你是我朋友」的好，不掺别的东西。TA对你和对别人没区别，这可能让你有点失落，但也说明TA一直没在你身上演戏。",
+   next:"这不是坏消息，你至少拿到了一段干净的关系。"},
+  {name:"暧昧拉扯型", tag:"享受这个过程，就是不表态", persona:"把暧昧当日常娱乐的人。",
+   reading:"TA很会——会留半句、会在关键时刻靠近一点、会让你多想一层，然后在你快问到答案的时候自然地岔开话题。TA不是不喜欢这个过程，TA是太喜欢这个过程了。",
+   next:"你想要的答案TA不是不知道，是不想现在给。"},
+  {name:"礼貌友好型", tag:"TA对谁都这样，别多想", persona:"社交礼仪的天花板。",
+   reading:"TA对你客气、周到、有分寸——然后你发现TA对快递、对前台、对所有人都一样客气。TA不是对你有意思，TA只是把「友好」设成了默认值。",
+   next:"你没错，只是把礼貌读成了偏爱。"},
+  {name:"信号错位型", tag:"你的心动，TA根本没接收到", persona:"频道永远不在一个波段。",
+   reading:"你已经在心里演完一整部剧，TA还在想「今天怎么突然找我」。你发的暗示，TA当成随口一说；你的试探，TA当成开玩笑。不是你不够明显，是TA的接收器刚好坏了。",
+   next:"想被理解，就得把话说到字面上。"},
+  {name:"时机未到型", tag:"有戏，但眼下不是时候", persona:"剧本对了，档期不对。",
+   reading:"你们之间不是没感觉，是这段时间被别的事占满了：TA在忙、你在忙，或者你们刚好都站在人生的换乘站。该来的感觉会来，只是现在挤不进去。",
+   next:"别把「现在不行」读成「永远不行」。"}
+];
+
+/* ===== 题库：32 题，每题 4 个选项，选项后方数字为计分结果（1-10） ===== */
+var QUESTIONS = [
+ {s:"一 · 聊天温度", q:"TA凌晨两点回你消息，你会怎么想？", o:[
+   ["这个点儿还记得我，今晚就双向奔赴了吧",1],
+   ["我们都睡不着，缘分这不就来了",7],
+   ["可能是值夜班顺手回的",9],
+   ["先别想，多观察几次再说",4]]},
+ {s:"一 · 聊天温度", q:"你们聊天记录里，谁更常先结尾？", o:[
+   ["每次都是TA最后说一句晚安，我怀疑TA不舍得关窗口",2],
+   ["嘴上说「睡了」，人还在线，装得挺镇定",5],
+   ["该结束就结束，礼礼貌貌互道晚安",8],
+   ["TA最近忙得三句一停，等TA忙完这阵再说",10]]},
+ {s:"一 · 聊天温度", q:"TA回你消息的速度，通常是？", o:[
+   ["我还没放下手机，消息就回来了",1],
+   ["基本秒回，但话题永远停在「哈哈哈哈」",3],
+   ["想起来才回，回得挺随意，像同学",6],
+   ["我不知道TA对别人是不是也这么快",9]]},
+ {s:"一 · 聊天温度", q:"TA给你发语音而不是打字，你会想到？", o:[
+   ["先记着，看看TA是不是对谁都发语音",4],
+   ["一条语音能说五分钟，就是不进正题",7],
+   ["TA最近出差，语音都是半夜补发的，先不往心里去",10],
+   ["背景音很吵，TA还是硬发给我",2]]},
+ {s:"一 · 聊天温度", q:"你发了一条九宫格，TA的评论是？", o:[
+   ["不评论，但每次都点赞，还知道我爱吃哪家",5],
+   ["评论「哈哈哈」「不错」，对谁都这个格式",8],
+   ["第一个赞，还留言「好看」，评论区里总有我",1],
+   ["评论里跟我吵起来，评论区变聊天室",3]]},
+ {s:"一 · 聊天温度", q:"你半夜发一句「在吗」，TA的回复是？", o:[
+   ["直接甩个表情包，然后各聊各的",6],
+   ["秒回「在的在的」，然后后面就没话了",9],
+   ["已读不回，第二天早上补一句「昨晚睡了」，还解释了原因",2],
+   ["过了很久回一句「刚看到」，然后开始问我在干嘛",4]]},
+ {s:"一 · 聊天温度", q:"你们聊天里最常出现的表情包是？", o:[
+   ["一堆狗头、捂脸、抱抱，就是没有一个正经的",7],
+   ["都是群里顺手存的，能用就行",10],
+   ["互相用对方的表情包，用着用着凑成一套",3],
+   ["我发什么TA都回「哈哈哈」加一个微笑",5]]},
+ {s:"一 · 聊天温度", q:"TA会不会用你的口头禅？", o:[
+   ["没注意过，TA说话一直挺客气的",8],
+   ["我吐槽的那句，TA原样学走了，还学得很顺",1],
+   ["好像会一点，但我也不确定是不是我多想",4],
+   ["会，我们连骂人的词都一样",6]]},
+
+ {s:"二 · 朋友圈与社交痕迹", q:"TA发朋友圈，你大概多久点赞？", o:[
+   ["我点完还在等TA回赞，TA压根没看访客记录",9],
+   ["TA每次都在我发完三分钟内点赞，但从不留言",2],
+   ["TA明明第一个赞，回头聊天还说「没刷到」",5],
+   ["TA每条都赞，就是不评论，吊着",7]]},
+ {s:"二 · 朋友圈与社交痕迹", q:"节日祝福，TA是哪种？", o:[
+   ["今年忘了，第二天补一句「昨天太忙」，补得还挺认真",10],
+   ["零点第一条是群发，第二条单独发我一句「你也快乐」",3],
+   ["直接发个红包，附一句「买奶茶」",6],
+   ["标准祝福语，连表情都不换，对谁都一样",8]]},
+ {s:"二 · 朋友圈与社交痕迹", q:"TA的朋友圈里，出现过你的痕迹吗？", o:[
+   ["合照、同一家店的定位，出现过不止一次",1],
+   ["出现过一次，还把我裁掉了半个",4],
+   ["只发过一只我送的玩偶，配文「朋友送的」",7],
+   ["完全没有，我甚至怀疑TA屏蔽了我",9]]},
+ {s:"二 · 朋友圈与社交痕迹", q:"TA会把你的朋友圈翻到多久以前？", o:[
+   ["TA能提到我三年前发的一条，说「你那时候还在减肥」",2],
+   ["TA说「我才没翻你朋友圈」，但知道我去年养过猫",5],
+   ["应该是随手刷到的，不像专门翻过",8],
+   ["应该没翻，我们还没到那一步",10]]},
+ {s:"二 · 朋友圈与社交痕迹", q:"TA转发过你的内容吗？", o:[
+   ["不但转，还带一句「我朋友写的，快看」",1],
+   ["转了，但把我名字打码，说「不告诉你们是谁」",3],
+   ["转了，跟转别人的一模一样，纯捧场",6],
+   ["转了，但TA以为那是别人写的",9]]},
+ {s:"二 · 朋友圈与社交痕迹", q:"TA的头像、背景，和你有没有关系？", o:[
+   ["暂时没关系，但TA点赞了我所有换头像的动态",4],
+   ["换过跟我同风格的头像，然后马上又换回去",7],
+   ["一直没换过，是只猫，跟谁都没关系",10],
+   ["把我们同款的那张设成了背景，没说，我发现的",2]]},
+ {s:"二 · 朋友圈与社交痕迹", q:"TA的评论区，你和别人有什么不同？", o:[
+   ["别人那儿TA活泼得很，我这儿惜字如金，明显在装",5],
+   ["一样，TA对评论区所有人都是「哈哈哈」",8],
+   ["别人评论TA回「嗯」，我评论TA能回三条",1],
+   ["我的评论下面总会多出一句「你怎么这么懂」",3]]},
+ {s:"二 · 朋友圈与社交痕迹", q:"你抛的梗，TA接得住吗？", o:[
+   ["接得住，跟接别人的梗一样快",6],
+   ["我说完TA笑了，但笑点完全不在同一个地方",9],
+   ["我上次随口那句，TA居然翻出来又回了我一遍",2],
+   ["一半接得住，一半要解释，TA在慢慢学",4]]},
+
+ {s:"三 · 约饭现场", q:"TA约你吃饭，理由通常是哪种？", o:[
+   ["什么理由都有，最后一句永远是「就我们俩」",7],
+   ["最近太忙，说「忙完再约」，但TA真的记着这事",10],
+   ["每次都拉上第三个人，说「人多热闹」",3],
+   ["嘴上说「随便吃个饭」，订位时挑了安静的位置",5]]},
+ {s:"三 · 约饭现场", q:"你们吃饭，谁先动筷子？", o:[
+   ["客气地等我先动，全程「你先你先」",8],
+   ["把第一块夹给我，还说「你先」",1],
+   ["先吃了，但会默默把我碗挪近一点",4],
+   ["谁饿谁先吃，我们没这规矩",6]]},
+ {s:"三 · 约饭现场", q:"AA还是TA抢着买单？", o:[
+   ["AA得很干净，TA算得比我清楚",9],
+   ["抢着买单，然后说「下次你请」，给下次留了理由",2],
+   ["我说AA，TA说行，转头偷偷把单买了还装作没买",5],
+   ["一人付一半，谁也不肯多占一分",7]]},
+ {s:"三 · 约饭现场", q:"TA说「下次约」，你信几分？", o:[
+   ["说下次，但TA真的忙，我不催，等着",10],
+   ["会主动定时间，「下周三，别再拖」",3],
+   ["真会约，但每次都组局，从不单独",6],
+   ["「下次约」就是句场面话，说完就过去了",8]]},
+ {s:"三 · 约饭现场", q:"吃完饭，TA会送你吗？", o:[
+   ["绕了两公里把我送到楼下，还说「顺路」",1],
+   ["送到地铁口就停，站那儿看我进站",4],
+   ["送到楼下，然后站着聊了二十分钟还不走",7],
+   ["「你自己回去方便吧」，然后先走了",9]]},
+ {s:"三 · 约饭现场", q:"TA点菜会记得你的口味吗？", o:[
+   ["我说过一次不吃香菜，TA从那以后每道菜都问一遍",2],
+   ["嘴上说「记不住」，点的时候全是我的口味",5],
+   ["会问一句「你有什么忌口」，对谁都问",8],
+   ["还没一起吃几顿，TA还在摸索",10]]},
+ {s:"三 · 约饭现场", q:"临时改约，TA的反应是？", o:[
+   ["「没事，我等你」，然后真的等了两个小时",1],
+   ["「那我不去了」，说完还是来了",3],
+   ["「行，改天吧」，很痛快",6],
+   ["TA没看到我消息，自己先去了",9]]},
+ {s:"三 · 约饭现场", q:"见面第一句话，TA通常说什么？", o:[
+   ["「来了啊」，然后自己先走两步，等我跟上",4],
+   ["「你怎么又瘦了」，开场就是三分钟打量",7],
+   ["「好久不见」，真的很久，我们一年没见",10],
+   ["「你今天……挺好看的」，然后马上低头",2]]},
+
+ {s:"四 · 朋友面前和小动作", q:"朋友面前，TA提到你的频率？", o:[
+   ["从不当我面提，结果TA朋友全知道我的事",5],
+   ["提过，但都是「我们组那个」，没名字",8],
+   ["TA朋友都知道我，见面第一句是「哦，就是TA说的那个」",1],
+   ["会在别人面前cue我，然后立刻补一句「别多想」",3]]},
+ {s:"四 · 朋友面前和小动作", q:"TA会不会在人群里找你？", o:[
+   ["在人群里跟谁都聊，我就是其中一个",6],
+   ["我以为TA在看我，回头TA在看墙上的海报",9],
+   ["每次抬头都在看我，被我发现就假装在找别人",2],
+   ["会站我附近，但一直不开口",4]]},
+ {s:"四 · 朋友面前和小动作", q:"你打了个喷嚏，TA的反应？", o:[
+   ["问「冷吗」，然后把外套往我肩上一搭就走",7],
+   ["没听见，我们隔了半个屋子",10],
+   ["甩过来一包纸，说「你感冒就完了」",3],
+   ["假装没听见，下一秒把空调调高了",5]]},
+ {s:"四 · 朋友面前和小动作", q:"一起走的时候，步速？", o:[
+   ["走在前面一点，回头等我，保持半米距离",8],
+   ["走得比我慢半拍，永远跟我并排",1],
+   ["特意慢下来，但一直不说话",4],
+   ["各走各的，最后在路口分开",6]]},
+ {s:"四 · 朋友面前和小动作", q:"TA借你的东西，通常什么时候还？", o:[
+   ["还得很及时，还多买了个一样的送我",9],
+   ["借了本书，一年了还没还，说「我还没看完」",2],
+   ["当天就还，还的时候装作正好路过",5],
+   ["借了充电宝，还回来的时候多了张电影票根",7]]},
+ {s:"四 · 朋友面前和小动作", q:"你的生日，TA是怎么记得的？", o:[
+   ["记错了日子，晚了两天补，补得还挺认真",10],
+   ["提前一周问我「那天有空吗」，理由说得特别含糊",3],
+   ["在我生日群发了个红包，跟给别人一样",6],
+   ["在群里说了句「生日快乐」，跟谁过生日都说",8]]},
+ {s:"四 · 朋友面前和小动作", q:"你换了新发型，TA的第一反应？", o:[
+   ["一眼看出来，还说「这个适合你」",1],
+   ["看了两眼没说话，第二天才说「昨天那个挺好看」",4],
+   ["说「没看出来」，然后盯着看了很久",7],
+   ["没反应，后来我才知道TA以为我戴了帽子",9]]},
+ {s:"四 · 朋友面前和小动作", q:"如果TA现在给你发消息，你最怕TA说什么？", o:[
+   ["「我有件事想跟你说」，然后打了三遍又删了",2],
+   ["「没事，就是问你在干嘛」，每次都是这句",5],
+   ["「在吗？帮我看下这个文件」，纯工作",8],
+   ["「等我忙完这阵，我们好好聊聊」，然后一直没忙完",10]]}
+];
+
+var LETTER = ["A","B","C","D"];
+var state = {i:0, ans:[]};
+var $ = function(id){ return document.getElementById(id); };
+
+/* ===== 口令表（只存哈希，页面里看不到真实口令） ===== */
+var HASHES = [
+  "ca68d7ca08434",
+  "1e8ac1423a5915",
+  "8c1e1c2d45f25",
+  "9472dceacf2eb",
+  "1a3fc002e81a3",
+  "164000e00c55f0",
+  "e0b0c29860a77",
+  "89d0a9191cf0c",
+  "53affeb4875d5",
+  "14490e44d08642",
+  "33de9de38f07",
+  "107e23f6fbd0a1",
+  "1f9b826ac0e0f3",
+  "1d7ece6b1321a9",
+  "16d2b5dcc9e53c",
+  "6e6400e7fd87e",
+  "1f7910076de2f3",
+  "17431c3f810e95",
+  "1449de42ce637c",
+  "1df1e470d7bfc3",
+  "1086c2d100ef80",
+  "41969e859305d",
+  "fb0413dde1741",
+  "309dfb942960c",
+  "8743322566ce2",
+  "c09fb55b25447",
+  "11f7d1a3994bee",
+  "1c4227a489f840",
+  "1e7069c628f3f4",
+  "17e1608ef0722c",
+  "141c5f2060646d",
+  "142d3af1ffb351",
+  "1f1d6dadfcd6a3",
+  "1ad99af96c5e2e",
+  "11c0af40a376e2",
+  "1e6c6c2335f720",
+  "175eddd072c9aa",
+  "1b31a338872be6",
+  "1de789a8f683a",
+  "67c3620540abf",
+  "1ad9c1c8b33385",
+  "195f9b13011599",
+  "10ed08d790ff76",
+  "d954930c4fd92",
+  "18b35438e1ff9e",
+  "4ff4c2f8d5cfc",
+  "1980f1e4427b20",
+  "6de16260e0dc6",
+  "16153cf76d1121",
+  "ed9213c91dddd",
+  "123d9be25947cc",
+  "1169023dece53",
+  "19c8660aa2c14f",
+  "45d8c82367788",
+  "18cf61ec87da7b",
+  "175861af1087f1",
+  "17a07a30b1543",
+  "e08633457146f",
+  "a0c007978c1af",
+  "4b891a7d813c5",
+  "1285fbe4fcdb10",
+  "bde89ac1032a4",
+  "74b8ba10399d4",
+  "1364fc35793afd",
+  "a4115686889e0",
+  "13243d2f0df848",
+  "1231377c8cf39a",
+  "16350f2a3bc454",
+  "1761db95b666a6",
+  "16860f741910af",
+  "cdc7f5e65cecb",
+  "14c23e0c26bcf5",
+  "333f7374d9acc",
+  "465bf158c816d",
+  "12eddb7b2f807b",
+  "1fc7d81c0a3fdd",
+  "162f7e38f18ecb",
+  "147d9199ebdeb1",
+  "197410a685358b",
+  "184e5f5cba70e7",
+  "17d91e029bb9ad",
+  "18cf6b2d784541",
+  "1d88969e3bd1d4",
+  "16745ef7060dd4",
+  "123cb5068f91f",
+  "1d44beb8be0447",
+  "123750c5838917",
+  "f0ab548638579",
+  "b3bab9a9f2c91",
+  "1a0447f7e13bdb",
+  "1b7936f8a1e286",
+  "288569577fcbc",
+  "87e3f4ecf4c78",
+  "b38712a8699c2",
+  "8f262555f9677",
+  "17bdb6c6067948",
+  "14586fe82f0e52",
+  "e45de0eca7432",
+  "839c5f27fd1ca",
+  "50d4cae172759",
+  "19dc0c07945c46",
+  "3ffc69e8c2b27",
+  "105cbd00d88ec4",
+  "1ea1376e349c7b",
+  "fec86a4615da9",
+  "102d2d8693cb88",
+  "76de551268727",
+  "1752a2c7d56e12",
+  "bc6edef231461",
+  "1780e9534d965d",
+  "62ee7b6ca1b9f",
+  "bc1e9e0b28a73",
+  "1896e8a45d6267",
+  "15d2b1977fb66b",
+  "15620fe09f4b8",
+  "128985a0f0901d",
+  "9ad1aa68d8767",
+  "7cec439579b32",
+  "ebee157e46ac0",
+  "1526e8aecc15a4",
+  "fcb9e9f7586ad",
+  "1cd6489573a0a0",
+  "d031c653f3183",
+  "1be3a2ee21578a",
+  "ca7b5e09bf3ba",
+  "d2f990e29aea6",
+  "a4ef9ad97dfda",
+  "916ded3a8fbde",
+  "98ec68a2bad55",
+  "11ff4b00d69b3b",
+  "1c0c859d48dfcb",
+  "7472a63b3c49",
+  "88bfe7c4a7f54",
+  "fc99327f9c664",
+  "e3cdbb5fa7f7b",
+  "15abd1830a8725",
+  "16a3f4be32a8f0",
+  "27603c844c40f",
+  "637c3a70ef026",
+  "19aea92416c993",
+  "1578022d4b9534",
+  "c7fe13cc6f61e",
+  "a8aee1dd27ee8",
+  "1430dd05b0fb80",
+  "cddf65c3dfdd6",
+  "143c121504674e",
+  "6c18d5628453f",
+  "1a35638bacfab1",
+  "5af76093b264e",
+  "16df73beba32be",
+  "1c56f9d3db1a18",
+  "e877bd44fbbc",
+  "37aef7a4a3cd7",
+  "2402461a07f66",
+  "89990a1426a2c",
+  "557c81cd066b",
+  "8f0f22fc416c3",
+  "14df61aa04e124",
+  "8d5fba536ebaf",
+  "f37da2a0e608f",
+  "1b8d3ee8fd2135",
+  "18b388a63d6951",
+  "3c951f4cba7c8",
+  "11d2a1dc42e5f7",
+  "19b60631d68a03",
+  "bf6a2407706bc",
+  "48737d0face41",
+  "ffc59600d0c92",
+  "bea4e7941e908",
+  "824e201062464",
+  "3012f108373c7",
+  "97cabd55af5fc",
+  "110f06c35b0c3f",
+  "132630738e0c01",
+  "1ed6c48bf6a47f",
+  "719a44a8cd721",
+  "c5c503b67b1eb",
+  "13385c2bac7678",
+  "f41d54590fbef",
+  "5335c9d5367b6",
+  "1e19cd5c09ccd1",
+  "15eb661a6e9926",
+  "82e121a2cffa",
+  "5c6f80112282d",
+  "f79d63d2f7937",
+  "de0ac4ac6dc29",
+  "e37e8ff1d791",
+  "1afe6e4ea9d8e6",
+  "37342ae44a89",
+  "a38d1d0b112fc",
+  "182816502e3d2c",
+  "4b4f6a02ee0c4",
+  "881b3726f1d86",
+  "53a2d542c04a7",
+  "1a833b39f51738",
+  "256a77f1d8d5f",
+  "1ee0d3ce695a1c",
+  "9ec42bef229b3",
+  "2e4433a692a41",
+  "156aea247579c7",
+  "28125532652a6",
+  "655afacac2fb9",
+  "1e237347131c3e",
+  "13d8821ee7e5e5",
+  "1655b800f3a2f2",
+  "c5baaba3b8dfa",
+  "763a3ab09072f",
+  "19aebb01173a80",
+  "1c6fda18786c24",
+  "1d39ca6a499caa",
+  "86317408216dc",
+  "14f1cc2ef72189",
+  "a08a34ea9f14b",
+  "37c6ee80492ab",
+  "1ce228a9a46701",
+  "1347ec24d6aff",
+  "1f0b03270eb140",
+  "1cee7c972a4073",
+  "1423d9b5f14b3f",
+  "157e2935533e3e",
+  "16df40c557e5e4",
+  "16939fc004fd26",
+  "178f364638cc06",
+  "1569698d80487c",
+  "ef5a504897aee",
+  "1062ef55c62b56",
+  "1dc5fd824e260a",
+  "57e563f273506",
+  "12c49ee30c0d66",
+  "10e3ae43e2399",
+  "a891c8b5c6296",
+  "71f47444a70a1",
+  "1f36d1082f9c3",
+  "7c51a47263d0a",
+  "19fb4afca52088",
+  "1f4ccdceff2ba0",
+  "1b503d795dad5a",
+  "4990dedca383e",
+  "ee0884296d045",
+  "af793f10a6d2a",
+  "2a2db060de045",
+  "a7719f7cd7b88",
+  "49c6b65b7d680",
+  "7b27a652b4a62",
+  "1eb4429b9df47a",
+  "4ce02eac844fd",
+  "1041f82b2e108b",
+  "c2936499eab51",
+  "154e0d066af4e",
+  "1adfd1e6b4d389"
+];
+
+function cyrb53(str, seed){
+  seed = seed || 0;
+  var h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
+  for (var i = 0; i < str.length; i++){
+    var ch = str.charCodeAt(i);
+    h1 = Math.imul(h1 ^ ch, 2654435761);
+    h2 = Math.imul(h2 ^ ch, 1597334677);
+  }
+  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507);
+  h1 ^= Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507);
+  h2 ^= Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+  return (4294967296 * (2097151 & h2) + (h1 >>> 0)).toString(16);
+}
+
+/* ===== 口令门 ===== */
+function normCode(v){ return (v || "").toUpperCase().replace(/[^A-Z0-9]/g, ""); }
+function lsGet(k){ try { return window.localStorage.getItem(k); } catch(e){ return null; } }
+function lsSet(k, v){ try { window.localStorage.setItem(k, v); return true; } catch(e){ return false; } }
+var memUsed = [];
+function usedList(){
+  var raw = lsGet("hb_used");
+  if (!raw) return memUsed.slice();
+  try { var a = JSON.parse(raw); return Array.isArray(a) ? a : []; } catch(e){ return memUsed.slice(); }
+}
+function markUsed(h){
+  if (memUsed.indexOf(h) < 0) memUsed.push(h);
+  var a = usedList();
+  if (a.indexOf(h) < 0) a.push(h);
+  lsSet("hb_used", JSON.stringify(a));
+}
+function gateMsg(t){ $("gateMsg").textContent = t || ""; }
+function unlock(){
+  var canon = normCode($("codeInput").value);
+  if (canon.length !== 10 || canon.slice(0, 2) !== "HB"){
+    gateMsg("口令是 10 位，格式像 HB-7K3M-9QPF");
+    return;
+  }
+  var h = cyrb53(canon);
+  if (HASHES.indexOf(h) < 0){
+    gateMsg("这个口令不存在，检查一下有没有输错");
+    return;
+  }
+  if (lsGet("hb_own") === h){ enterTest(); return; }
+  if (usedList().indexOf(h) > -1){
+    gateMsg("这个口令已经被用过了，一单一码");
+    return;
+  }
+  lsSet("hb_own", h);
+  markUsed(h);
+  enterTest();
+}
+function enterTest(){
+  gateMsg("");
+  $("codeInput").value = "";
+  state.i = 0;
+  state.ans = [];
+  renderQuestion();
+  showView("home");
+}
+function boot(){
+  var own = lsGet("hb_own");
+  if (own && HASHES.indexOf(own) > -1){ showView("home"); } else { showView("gate"); }
+}
+$("unlockBtn").addEventListener("click", unlock);
+$("codeInput").addEventListener("keydown", function(e){
+  if (e.key === "Enter"){ e.preventDefault(); unlock(); }
+});
+boot();
+
+/* ===== 视图切换 ===== */
+function showView(name){
+  ["gate","home","quiz","result"].forEach(function(k){
+    $("view-" + k).hidden = (k !== name);
+  });
+  window.scrollTo({top:0, behavior:"instant"});
+}
+
+/* ===== 渲染题目 ===== */
+function renderQuestion(){
+  var q = QUESTIONS[state.i];
+  $("qnum").textContent = state.i + 1;
+  $("railFill").style.width = ((state.i + 1) / QUESTIONS.length * 100) + "%";
+  $("qsec").textContent = q.s;
+  $("qtext").textContent = q.q;
+  $("backBtn").disabled = state.i === 0;
+
+  var box = $("opts");
+  box.innerHTML = "";
+  q.o.forEach(function(item, idx){
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "opt" + (state.ans[state.i] === item[1] && state.ans[state.i] !== undefined ? " on" : "");
+    btn.innerHTML = '<span class="k">' + LETTER[idx] + '</span><span class="t"></span>';
+    btn.querySelector(".t").textContent = item[0];
+    btn.addEventListener("click", function(){ pick(item[1], btn); });
+    box.appendChild(btn);
+  });
+
+  var body = $("qbody");
+  body.style.animation = "none";
+  void body.offsetWidth;
+  body.style.animation = "";
+}
+
+/* ===== 选答案 ===== */
+var locked = false;
+function pick(key, btn){
+  if (locked) return;
+  locked = true;
+  Array.prototype.forEach.call($("opts").children, function(el){ el.classList.remove("on"); });
+  btn.classList.add("on");
+  state.ans[state.i] = key;
+  setTimeout(function(){
+    locked = false;
+    if (state.i < QUESTIONS.length - 1){
+      state.i++;
+      renderQuestion();
+    } else {
+      renderResult();
+    }
+  }, 260);
+}
+
+/* ===== 计分 ===== */
+function tally(){
+  var s = new Array(TYPES.length).fill(0);
+  state.ans.forEach(function(k){ if (typeof k === "number") s[k - 1]++; });
+  return s;
+}
+
+/* ===== 渲染结果 ===== */
+function renderResult(){
+  var scores = tally();
+  var best = 0;
+  for (var i = 1; i < scores.length; i++){
+    if (scores[i] > scores[best]) best = i;
+  }
+  var t = TYPES[best];
+
+  $("rindex").textContent = "结果 " + String(best + 1).padStart(2, "0") + " / 10";
+  $("rname").innerHTML = "<em></em>";
+  $("rname").querySelector("em").textContent = t.name;
+  $("rtag").textContent = t.tag;
+  $("rpersona").textContent = t.persona;
+  $("reading").textContent = t.reading;
+  $("nextTip").textContent = t.next;
+
+  var max = Math.max.apply(null, scores);
+  var rows = scores.map(function(v, idx){ return {idx:idx, v:v}; })
+                   .sort(function(a, b){ return b.v - a.v || a.idx - b.idx; })
+                   .slice(0, 3);
+  var host = $("distRows");
+  host.innerHTML = "";
+  rows.forEach(function(r, n){
+    var row = document.createElement("div");
+    row.className = "row" + (n === 0 ? " top" : "");
+    row.innerHTML = '<span class="nm"></span><span class="tr"><i></i></span><span class="sc"></span>';
+    row.querySelector(".nm").textContent = TYPES[r.idx].name.replace("型", "");
+    row.querySelector(".sc").textContent = r.v + "分";
+    host.appendChild(row);
+    var bar = row.querySelector("i");
+    var w = max > 0 ? Math.round(r.v / max * 100) : 0;
+    requestAnimationFrame(function(){ setTimeout(function(){ bar.style.width = w + "%"; }, 260 + n * 60); });
+  });
+
+  state.best = best;
+  showView("result");
+}
+
+/* ===== 按钮绑定 ===== */
+$("startBtn").addEventListener("click", function(){
+  state.i = 0; state.ans = [];
+  renderQuestion();
+  showView("quiz");
+});
+$("backBtn").addEventListener("click", function(){
+  if (state.i === 0) return;
+  state.i--;
+  renderQuestion();
+});
+$("againBtn").addEventListener("click", function(){
+  state.i = 0; state.ans = [];
+  renderQuestion();
+  showView("quiz");
+});
+$("copyBtn").addEventListener("click", function(){
+  var t = TYPES[state.best];
+  var text = "我的心动结果是「" + t.name + "」——" + t.tag + "\n" + t.reading + "\n\n#测一测TA是不是也在偷偷喜欢你";
+  var done = function(ok){
+    var btn = $("copyBtn");
+    btn.textContent = ok ? "已复制" : "复制失败";
+    setTimeout(function(){ btn.textContent = "复制结果"; }, 1600);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ done(false); });
+  } else {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch(e){ ok = false; }
+    document.body.removeChild(ta);
+    done(ok);
+  }
+});
+</script>
+</body>
+</html>
